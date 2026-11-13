@@ -1,0 +1,27 @@
+#!/bin/sh
+# Runs tools/cli.js with the Node that ships with Aside.
+set -eu
+
+# the real location of this file, also when it is started through a symlink
+self=$0
+while [ -L "$self" ]; do
+  link=$(readlink "$self")
+  case $link in
+    /*) self=$link ;;
+    *) self=$(dirname "$self")/$link ;;
+  esac
+done
+app=$(cd "$(dirname "$self")/.." && pwd -P)
+
+dir=${ASIDE_POCKET_DIR:-$HOME/.aside-pocket}
+node=
+if [ -f "$dir/config.json" ]; then
+  node=$(sed -n 's/^ *"node": *"\(.*\)",\{0,1\} *$/\1/p' "$dir/config.json")
+fi
+[ -n "$node" ] || node=$HOME/.aside/runtime/bin/node
+if [ ! -x "$node" ]; then
+  echo "Node was not found at $node. It ships with Aside: install Aside and open it once." >&2
+  exit 1
+fi
+
+exec "$node" "$app/tools/cli.js" "$@"
