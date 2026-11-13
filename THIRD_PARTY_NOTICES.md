@@ -5,6 +5,7 @@ Aside Pocket has no npm dependencies. Two files in `web/vendor/` contain code fr
 | File | Contains | License | Upstream |
 |---|---|---|---|
 | `web/vendor/preact-htm.js` | Preact and htm 3.1.1, in one bundle | Preact: MIT. htm: Apache-2.0 | https://github.com/preactjs/preact and https://github.com/developit/htm |
+| `web/vendor/jsqr.js` | jsQR 1.4.0 | Apache-2.0 | https://github.com/cozmo/jsQR |
 
 ## Preact
 
@@ -36,9 +37,15 @@ Copyright 2018 Google Inc.
 
 Licensed under the Apache License, Version 2.0. The full text is below.
 
+## jsQR
+
+Copyright the jsQR authors (https://github.com/cozmo/jsQR).
+
+Licensed under the Apache License, Version 2.0. The full text is below.
+
 ## Apache License, Version 2.0
 
-Applies to htm.
+Applies to htm and jsQR.
 
 ```
                                  Apache License

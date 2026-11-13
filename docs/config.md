@@ -42,5 +42,5 @@ Label `dev.asidepocket.bridge`, plist `~/Library/LaunchAgents/dev.asidepocket.br
 
 ## Command line
 `aside-pocket <command>` (a small shell wrapper in `bin/aside-pocket` that runs `<node> tools/cli.js`):
-`setup` (detect, write config, install LaunchAgent, `tailscale serve`, health check, print URL and pairing code), `pair` (code), `status`, `logs`, `doctor` (checks every link and prints a report with e-mail addresses, host names and home paths masked, safe to paste into an issue), `catalog` (build the model list), `update`, `uninstall` (stops the agent, removes the plist and `tailscale serve` entry; keeps the data directory unless `--purge`).
+`setup` (detect, write config, install LaunchAgent, `tailscale serve`, health check, print URL and pairing QR), `pair` (code + QR), `status`, `logs`, `doctor` (checks every link and prints a report with e-mail addresses, host names and home paths masked, safe to paste into an issue), `catalog` (build the model list), `update`, `uninstall` (stops the agent, removes the plist and `tailscale serve` entry; keeps the data directory unless `--purge`).
 `install.sh` (repo root) only: checks macOS and that the Aside CLI exists, downloads the latest release (or `main`) into `<data dir>/app`, links `aside-pocket` into `~/.local/bin` (and says so if that is not on PATH), then runs `aside-pocket setup`.

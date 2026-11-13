@@ -7,6 +7,7 @@ import readline from 'node:readline/promises'
 import { spawnSync } from 'node:child_process'
 import { DATA_DIR, loadConfig, writeSecret, tailscaleStatus } from '../bridge/config.js'
 import { createPairCode } from '../bridge/auth.js'
+import { qrText } from '../bridge/qr.js'
 import { USAGE, stop, parseArgs, mask, tailnetSelf, serveState, httpsDisabled, HTTPS_STEPS, plist } from './lib.js'
 
 const APP = path.join(import.meta.dirname, '..')
@@ -166,8 +167,17 @@ async function setup(args) {
 }
 
 function pair() {
+  const config = loadConfig()
   const code = createPairCode(DATA_DIR)
   say(`Pairing code: ${code}  (valid 5 minutes, one use)`)
+  // The QR is only printed in a real terminal, so scripts that read the code get one clean line.
+  if (!process.stdout.isTTY) return
+  const { host } = tailnetSelf(config.tailscale && tailscaleStatus(config.tailscale))
+  if (!host) throw stop('Tailscale is not logged in, so there is no address to show. Run: aside-pocket doctor')
+  const url = `https://${host}:${config.httpsPort}/#/pair/${code}`
+  say(`\nOr scan this with the iPhone camera (opens ${url.replace(code, '…')} in Safari):\n`)
+  say(qrText(url))
+  say('\nIn the Home Screen app, tap Scan QR code on the pairing screen, or type the code.')
 }
 
 async function status() {

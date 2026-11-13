@@ -22,7 +22,7 @@ First public release. Tested with Aside 1.26.x on macOS and an iPhone.
 - Voice input through Groq, when `GROQ_API_KEY` is set.
 - Memory search and file view, read-only.
 - Screenshot of the tab a session's agent is using.
-- Pairing with a one-time 6-digit code, valid for 5 minutes.
+- Pairing with a one-time 6-digit code or a QR code, valid for 5 minutes.
 - Access control: Tailscale login allow-list plus a bearer token.
 - `aside-pocket` command: `setup`, `pair`, `status`, `logs`, `doctor`, `catalog`, `update`, `uninstall`.
 - `install.sh` one-line installer and a LaunchAgent (`dev.asidepocket.bridge`) that keeps the bridge running.

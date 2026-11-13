@@ -647,6 +647,8 @@ a.routine-main:active { opacity: 0.6; }
   text-align: center;
 }
 .pairing img { border-radius: 16px; }
+.scanner { width: 100%; display: grid; gap: 10px; justify-items: center; }
+.scanner video { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 16px; background: var(--card); }
 .pairing .btn.wide { margin-top: 0; }
 .pairing h1 { font-size: 32px; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 20px; }
 .code {

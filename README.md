@@ -50,8 +50,8 @@ bin/aside-pocket setup
 1. Connect Tailscale on the iPhone.
 2. Open the URL that `setup` printed in Safari. It looks like `https://your-mac.your-tailnet.ts.net:8443/`.
 3. Share > Add to Home Screen. Open "Aside Pocket" from the Home Screen.
-4. On the Mac run `aside-pocket pair`. It prints a 6-digit code.
-5. In the app type the code. The code works once and expires after 5 minutes.
+4. On the Mac run `aside-pocket pair`. It prints a 6-digit code and a QR code.
+5. In the app tap Scan QR code, or type the code. The code works once and expires after 5 minutes.
 6. In Settings tap Enable notifications and allow them, then Send test.
 
 Pair inside the Home Screen app, not in the Safari tab. iOS gives the two separate storage, so a token saved in Safari is not visible to the Home Screen app. Notifications also only work from the Home Screen app.
@@ -74,7 +74,7 @@ Pair inside the Home Screen app, not in the Safari tab. iOS gives the two separa
 | Command | What it does |
 |---|---|
 | `aside-pocket setup` | Options `--port N` and `--https-port N`. Detects paths and your Tailscale login, writes the config, installs the LaunchAgent, runs `tailscale serve`, checks health, prints the URL and a pairing QR. Safe to run again. |
-| `aside-pocket pair` | Prints a new pairing code. |
+| `aside-pocket pair` | Prints a new pairing code and QR. |
 | `aside-pocket status` | Shows whether the bridge is running, its address and its version. |
 | `aside-pocket logs` | Shows the last lines of the bridge logs in `~/.aside-pocket/logs/`. `-f` keeps following. |
 | `aside-pocket doctor` | Checks every link between the phone and Aside and prints a report. Host names and home paths are masked and e-mail addresses are cut to the first letter and the domain, so the report can go into an issue. |

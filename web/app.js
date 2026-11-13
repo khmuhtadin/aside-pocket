@@ -572,7 +572,63 @@ function ModelSheet({ account, models, value, onPick, onClose }) {
 
 // ---------- pairing ----------
 
+// Camera view that looks for the pairing QR printed by `aside-pocket pair`. The QR reader is loaded only when this opens.
+function Scanner({ onCode, onClose }) {
+  const video = useRef();
+  const [error, setError] = useState('');
+  useEffect(() => {
+    let stream;
+    let timer;
+    let stopped = false;
+    const canvas = document.createElement('canvas');
+    const look = () => {
+      const v = video.current;
+      if (!v || !v.videoWidth) return;
+      const scale = Math.min(1, 640 / v.videoWidth);
+      canvas.width = v.videoWidth * scale;
+      canvas.height = v.videoHeight * scale;
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      ctx.drawImage(v, 0, 0, canvas.width, canvas.height);
+      const found = window.jsQR(ctx.getImageData(0, 0, canvas.width, canvas.height).data, canvas.width, canvas.height, { inversionAttempts: 'dontInvert' });
+      const pair = found && /#\/pair\/(\d{6})$/.exec(found.data);
+      if (pair) onCode(pair[1]);
+    };
+    (async () => {
+      try {
+        if (!window.jsQR) {
+          await new Promise((ok, fail) => {
+            const s = document.createElement('script');
+            s.src = '/vendor/jsqr.js';
+            s.onload = ok;
+            s.onerror = fail;
+            document.head.append(s);
+          });
+        }
+        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        if (stopped) return stream.getTracks().forEach((t) => t.stop());
+        video.current.srcObject = stream;
+        await video.current.play();
+        timer = setInterval(look, 250);
+      } catch (err) {
+        setError(err.name === 'NotAllowedError' ? 'Camera permission was not granted.' : 'The camera is not available here.');
+      }
+    })();
+    return () => {
+      stopped = true;
+      clearInterval(timer);
+      if (stream) stream.getTracks().forEach((t) => t.stop());
+    };
+  }, []);
+  return html`
+    <div class="scanner">
+      <video ref=${video} playsinline muted aria-label="Camera"></video>
+      <p class="hint">${error || 'Point the camera at the QR code in the Mac\u2019s terminal.'}</p>
+      <button type="button" class="btn wide" onClick=${onClose}>Cancel</button>
+    </div>`;
+}
+
 function Pairing({ onPaired }) {
+  const [scan, setScan] = useState(false);
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -590,6 +646,14 @@ function Pairing({ onPaired }) {
       setBusy(false);
     }
   };
+  // A scanned pairing QR opens #/pair/<code>: use it once and drop it from the address.
+  useEffect(() => {
+    const scanned = /^#\/pair\/(\d{6})$/.exec(location.hash);
+    if (!scanned) return;
+    location.hash = '#/';
+    setCode(scanned[1]);
+    submit(scanned[1]);
+  }, []);
   const input = (e) => {
     const value = e.target.value.replace(/\D/g, '').slice(0, 6);
     setCode(value);
@@ -600,12 +664,15 @@ function Pairing({ onPaired }) {
     <form class="pairing" onSubmit=${(e) => { e.preventDefault(); submit(code); }}>
       <img src="/icons/icon-192.png" width="64" height="64" alt="" />
       <h1>Aside Pocket</h1>
-      <label for="code">Pairing code</label>
-      <input id="code" class="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" maxlength="6"
-        placeholder="000000" value=${code} onInput=${input} />
-      <p class="error" role="alert">${error}</p>
-      <button class="btn primary wide" disabled=${busy || code.length !== 6}>${busy ? 'Pairing…' : 'Pair'}</button>
-      <p class="hint">Run <code>aside-pocket pair</code> on the Mac to get a code.</p>
+      ${scan ? html`
+        <${Scanner} onClose=${() => setScan(false)} onCode=${(c) => { setScan(false); setCode(c); submit(c); }} />` : html`
+        <label for="code">Pairing code</label>
+        <input id="code" class="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" maxlength="6"
+          placeholder="000000" value=${code} onInput=${input} />
+        <p class="error" role="alert">${error}</p>
+        <button class="btn primary wide" disabled=${busy || code.length !== 6}>${busy ? 'Pairing…' : 'Pair'}</button>
+        <button type="button" class="btn wide" disabled=${busy} onClick=${() => { setError(''); setScan(true); }}>Scan QR code</button>
+        <p class="hint">Run <code>aside-pocket pair</code> on the Mac to get a code and a QR code.</p>`}
     </form>`;
 }
 
@@ -1610,5 +1677,8 @@ function App() {
       ${message && html`<div class="toast" role="status">${message}</div>`}
     </div>`;
 }
+
+// A pairing link opened on a device that is already paired just goes to the inbox.
+if (getToken() && location.hash.startsWith('#/pair/')) location.hash = '#/';
 
 render(html`<${App} />`, document.getElementById('app'));

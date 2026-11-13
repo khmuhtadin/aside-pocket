@@ -6,7 +6,7 @@ export const COMMANDS = ['setup', 'pair', 'status', 'logs', 'doctor', 'catalog',
 export const USAGE = `Usage: aside-pocket <command>
 
   setup [--port N] [--https-port N]   detect, write config, start the bridge, turn on tailscale serve, pair
-  pair                                print a new pairing code
+  pair                                print a new pairing code (and QR code)
   status                              is the bridge running, and where
   logs [-f]                           last lines of the bridge logs (-f keeps following)
   doctor                              check every link; the report is safe to paste into an issue
