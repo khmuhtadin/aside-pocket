@@ -3,6 +3,8 @@
 [![test](https://github.com/khmuhtadin/aside-pocket/actions/workflows/test.yml/badge.svg)](https://github.com/khmuhtadin/aside-pocket/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+![Aside Pocket on an iPhone: the inbox, a finished thread and the new task screen](docs/images/hero.png)
+
 Aside Pocket lets you watch and steer your Aside Browser agent sessions from your iPhone. A small Node bridge on your Mac wraps the official Aside CLI and serves a web app to the phone over Tailscale.
 
 ```
