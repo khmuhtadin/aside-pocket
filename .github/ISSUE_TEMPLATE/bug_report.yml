@@ -1,0 +1,69 @@
+name: Bug report
+description: Something does not work as described
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a security problem do not open an issue. Use Security > Report a vulnerability instead.
+        Do not paste your token, a pairing code, or prompts and answers from your sessions.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the app
+        2. Tap ...
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Output of aside-pocket doctor
+      description: Run `aside-pocket doctor` on the Mac and paste the report. It masks host names and home paths and shortens e-mail addresses. Read it once before posting.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: aside-version
+    attributes:
+      label: Aside version
+      placeholder: 1.26.x
+    validations:
+      required: true
+  - type: input
+    id: os-versions
+    attributes:
+      label: macOS and iOS version
+      placeholder: macOS 15.1, iOS 18.1
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How you installed
+      options:
+        - install.sh one-liner
+        - git clone and bin/aside-pocket setup
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: private
+    attributes:
+      label: Privacy
+      options:
+        - label: I removed tokens and private session content
+          required: true

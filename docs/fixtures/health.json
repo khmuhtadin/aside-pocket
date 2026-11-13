@@ -1,0 +1,12 @@
+{
+  "service": "aside-daemon",
+  "version": "1.26.1111.1046",
+  "pid": 12345,
+  "host": "127.0.0.1",
+  "port": 21420,
+  "ready": true,
+  "status": "idle",
+  "startedAt": "2026-11-12T08:00:00.000Z",
+  "runningSessionCount": 0,
+  "semaphore": { "available": 200, "capacity": 200 }
+}

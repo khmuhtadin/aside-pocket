@@ -1,0 +1,57 @@
+[
+  {
+    "id": "RRRRRRRRRRRRRRR1",
+    "name": "Placeholder routine name",
+    "prompt": "Placeholder routine prompt",
+    "rrule": "DTSTART;TZID=Etc/UTC:20261112T213000\nRRULE:FREQ=DAILY;COUNT=2",
+    "type": "child",
+    "environment": "device",
+    "deviceId": "00000000-0000-0000-0000-000000000000",
+    "revision": null,
+    "parentSessionId": "AAAAAAAAAAAAAAA1",
+    "projectId": "example-project",
+    "channelId": null,
+    "status": "active",
+    "nextRunAt": "2026-11-13T14:30:00.000Z",
+    "metadata": {
+      "origin": { "type": "session-message", "sessionId": "AAAAAAAAAAAAAAA1", "messageId": "<id>" },
+      "memoryPath": "<HOME>/.aside/u/0/…"
+    },
+    "sessionConfig": {
+      "model": { "provider": "claude-code", "modelId": "claude-opus-5-5", "thinkingLevel": "high", "fastMode": false },
+      "harnessId": "v1",
+      "permissionMode": "full-access"
+    },
+    "createdAt": "2026-11-12T10:00:00.000Z",
+    "updatedAt": "2026-11-12T14:31:00.000Z",
+    "pausedAt": null,
+    "deletedAt": null,
+    "lastRunStatus": "errored"
+  },
+  {
+    "id": "RRRRRRRRRRRRRRR2",
+    "name": "Placeholder paused routine",
+    "prompt": "Placeholder routine prompt",
+    "rrule": "DTSTART;TZID=Etc/UTC:20261101T080000\nRRULE:FREQ=HOURLY;INTERVAL=2",
+    "type": "child",
+    "environment": "device",
+    "deviceId": "00000000-0000-0000-0000-000000000000",
+    "revision": null,
+    "parentSessionId": "AAAAAAAAAAAAAAA2",
+    "projectId": null,
+    "channelId": null,
+    "status": "paused",
+    "nextRunAt": null,
+    "metadata": { "origin": { "type": "session-message", "sessionId": "AAAAAAAAAAAAAAA2", "messageId": "<id>" } },
+    "sessionConfig": {
+      "model": { "provider": "claude-code", "modelId": "claude-opus-5-5", "thinkingLevel": "low", "fastMode": false },
+      "harnessId": "v1",
+      "permissionMode": "guard"
+    },
+    "createdAt": "2026-11-01T01:00:00.000Z",
+    "updatedAt": "2026-11-05T01:00:00.000Z",
+    "pausedAt": "2026-11-05T01:00:00.000Z",
+    "deletedAt": null,
+    "lastRunStatus": "idle"
+  }
+]

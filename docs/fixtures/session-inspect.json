@@ -1,0 +1,64 @@
+{
+  "session": {
+    "transcriptRevision": 0,
+    "id": "AAAAAAAAAAAAAAA0",
+    "projectId": null,
+    "title": "Placeholder title, started from the CLI",
+    "trigger": { "type": "user", "source": "cli" },
+    "status": "running",
+    "harnessId": "v1",
+    "systemPrompt": "<omitted, about 120 KB in the real output>",
+    "model": { "provider": "claude-code", "modelId": "claude-opus-5-5", "thinkingLevel": "low", "fastMode": false },
+    "permissionMode": "guard",
+    "permission": {
+      "rules": { "allow": [], "approved": [], "deny": [], "ask": [], "default": "allow" },
+      "files": {
+        "readableRoots": ["<HOME>/.aside/u/0", "<HOME>/Downloads", "<HOME>/Documents"],
+        "writableRoots": ["<HOME>/.aside/u/0", "<HOME>/Downloads", "<HOME>/Documents"],
+        "outsideRead": "ask",
+        "outsideWrite": "ask"
+      },
+      "sandbox": { "enabled": true }
+    },
+    "contextWindow": { "usedTokens": 60000, "totalTokens": 1000000 },
+    "queuedMessages": [
+      { "role": "user", "content": [{ "type": "text", "text": "Queued follow-up prompt" }], "timestamp": 1794541817830 },
+      { "role": "system-message", "content": "<recalled_memories>…</recalled_memories>", "kind": "memory_recall", "metadata": {}, "timestamp": 1794541817898 }
+    ],
+    "steeringMessages": [],
+    "cwd": "<HOME>/.aside/u/0",
+    "toolState": {
+      "todo": { "todos": [] },
+      "execution": { "totalRunMs": 38000, "startedAt": 1794541654798 },
+      "bash": { "cwd": "<HOME>/.aside/u/0" },
+      "skills": { "delivered": ["<hash>"], "loaded": [{ "name": "aside", "path": "<HOME>/.aside/u/0/skills/builtin/aside/SKILL.md" }] },
+      "question": {},
+      "subagent": { "subagents": [] },
+      "computerRunOrigin": "headless"
+    },
+    "activeTabTargetId": "0123456789ABCDEF0123456789ABCDEF",
+    "browserBinding": {
+      "profileId": "<profile-uuid>",
+      "browserMode": "default",
+      "windowId": 1000000001,
+      "anchorTargetId": "FEDCBA9876543210FEDCBA9876543210"
+    },
+    "incognito": false,
+    "ephemeral": true,
+    "runtimeConfig": {
+      "memoryExtractionDisabled": false,
+      "proactiveMode": false,
+      "strictModelSelection": false,
+      "finalConfirm": false,
+      "unattended": true,
+      "takeScreenshotOnEverySnapshot": false,
+      "workingDirs": []
+    },
+    "readAt": "2026-11-13T03:49:52.000Z",
+    "latestCompactionMessageOffset": 0,
+    "createdAt": "2026-11-13T03:49:52.000Z",
+    "updatedAt": "2026-11-13T03:49:55.000Z"
+  },
+  "answer": null,
+  "error": null
+}

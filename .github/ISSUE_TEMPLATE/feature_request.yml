@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest a change or an addition
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you want to do
+      description: Describe the situation, not only the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        The project wraps the official Aside CLI and nothing else. A feature the CLI cannot do is out of scope. See the ground rules in CONTRIBUTING.md.

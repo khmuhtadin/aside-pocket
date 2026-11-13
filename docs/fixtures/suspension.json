@@ -1,0 +1,22 @@
+{
+  "_note": "Shape of aside.sessions.get(id) for a routine run that waits on a file-write approval. Only kind 'approval' has been observed.",
+  "id": "AAAAAAAAAAAAAAA7",
+  "projectId": null,
+  "parentId": "AAAAAAAAAAAAAAA1",
+  "title": "Placeholder routine run title",
+  "trigger": { "type": "routine", "title": "Placeholder routine name" },
+  "routineId": "RRRRRRRRRRRRRRR1",
+  "status": "suspended",
+  "suspension": {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "kind": "approval",
+    "toolCallId": "<id of the toolCall that is waiting>",
+    "request": { "scope": { "type": "file", "path": "<HOME>/some/path/file.txt", "mode": "write" } },
+    "createdAt": "2026-11-10T09:30:00.000Z"
+  },
+  "incognito": false,
+  "ephemeral": false,
+  "readAt": "2026-11-10T09:00:00.000Z",
+  "createdAt": "2026-11-10T09:00:00.000Z",
+  "updatedAt": "2026-11-10T09:30:05.000Z"
+}

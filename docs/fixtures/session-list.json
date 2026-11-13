@@ -1,0 +1,88 @@
+{
+  "sessions": [
+    {
+      "id": "AAAAAAAAAAAAAAA0",
+      "projectId": null,
+      "title": "Placeholder title, started from the CLI",
+      "trigger": { "type": "user", "source": "cli" },
+      "status": "running",
+      "incognito": false,
+      "ephemeral": true,
+      "readAt": "2026-11-13T03:49:52.000Z",
+      "createdAt": "2026-11-13T03:49:52.000Z",
+      "updatedAt": "2026-11-13T03:49:55.000Z"
+    },
+    {
+      "id": "AAAAAAAAAAAAAAA1",
+      "projectId": null,
+      "title": "Placeholder title, finished and read",
+      "trigger": { "type": "user", "source": "sidepanel" },
+      "status": "idle",
+      "incognito": false,
+      "ephemeral": false,
+      "readAt": "2026-11-12T10:05:00.000Z",
+      "createdAt": "2026-11-12T10:00:00.000Z",
+      "updatedAt": "2026-11-12T10:04:30.000Z"
+    },
+    {
+      "id": "AAAAAAAAAAAAAAA2",
+      "projectId": "example-project",
+      "title": "Placeholder title, finished and unread",
+      "trigger": { "type": "user", "source": "tasks-page" },
+      "status": "idle",
+      "incognito": false,
+      "ephemeral": false,
+      "readAt": "2026-11-12T09:00:00.000Z",
+      "createdAt": "2026-11-12T09:00:00.000Z",
+      "updatedAt": "2026-11-12T09:12:00.000Z"
+    },
+    {
+      "id": "AAAAAAAAAAAAAAA3",
+      "projectId": null,
+      "title": "Placeholder title, stopped by the user",
+      "trigger": { "type": "user", "source": "new-tab" },
+      "status": "interrupted",
+      "incognito": false,
+      "ephemeral": false,
+      "readAt": "2026-11-11T08:00:00.000Z",
+      "createdAt": "2026-11-11T07:50:00.000Z",
+      "updatedAt": "2026-11-11T07:58:00.000Z"
+    },
+    {
+      "id": "AAAAAAAAAAAAAAA4",
+      "projectId": null,
+      "title": "Placeholder title, failed",
+      "trigger": { "type": "user", "source": "mini-popup" },
+      "status": "errored",
+      "incognito": false,
+      "ephemeral": false,
+      "readAt": "2026-11-10T08:00:00.000Z",
+      "createdAt": "2026-11-10T07:50:00.000Z",
+      "updatedAt": "2026-11-10T07:58:00.000Z"
+    },
+    {
+      "id": "AAAAAAAAAAAAAAA5",
+      "projectId": null,
+      "title": "Placeholder title, branched from another session",
+      "trigger": { "type": "user", "source": "branch" },
+      "status": "idle",
+      "incognito": false,
+      "ephemeral": false,
+      "readAt": "2026-11-09T08:00:00.000Z",
+      "createdAt": "2026-11-09T07:50:00.000Z",
+      "updatedAt": "2026-11-09T07:58:00.000Z",
+      "branchedFrom": "AAAAAAAAAAAAAAA1"
+    },
+    {
+      "id": "AAAAAAAAAAAAAAA6",
+      "projectId": "example-project",
+      "title": "Placeholder title, session without a trigger field",
+      "status": "idle",
+      "incognito": false,
+      "ephemeral": false,
+      "readAt": "2026-11-02T08:17:45.000Z",
+      "createdAt": "2026-11-02T08:17:45.000Z",
+      "updatedAt": "2026-11-02T08:17:45.000Z"
+    }
+  ]
+}

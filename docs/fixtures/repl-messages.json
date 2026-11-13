@@ -1,0 +1,108 @@
+[
+  { "role": "turn-lifecycle", "event": "started", "turnId": "00000000-0000-0000-0000-000000000001", "timestamp": 1794541654700 },
+  { "role": "user", "content": [{ "type": "text", "text": "Placeholder user prompt" }], "timestamp": 1794541654759 },
+  { "role": "user-message-metadata", "_note": "fields vary; the bridge drops this role" },
+  { "role": "system-message", "content": "<recalled_memories>…</recalled_memories>", "kind": "memory_recall", "metadata": {}, "timestamp": 1794541654796 },
+  {
+    "role": "assistant",
+    "content": [
+      { "type": "thinking", "thinking": "Placeholder thinking", "thinkingSignature": "<opaque>" },
+      { "type": "text", "text": "Placeholder interim text" },
+      { "type": "toolCall", "id": "toolu_01", "name": "bash", "arguments": { "title": "Short human title", "command": "echo hi", "timeout_ms": 10000 } }
+    ],
+    "api": "anthropic-messages",
+    "provider": "claude-code",
+    "model": "claude-opus-5-5",
+    "usage": {},
+    "stopReason": "toolUse",
+    "timestamp": 1794541654806,
+    "providerThinkingLevel": "low",
+    "responseId": "msg_01",
+    "rawStopReason": "tool_use",
+    "durationMs": 2561,
+    "thinkingLevel": "low",
+    "completedAt": 1794541657367
+  },
+  {
+    "role": "toolResult",
+    "toolCallId": "toolu_01",
+    "toolName": "bash",
+    "content": [{ "type": "text", "text": "hi" }, { "type": "image", "data": "<base64>", "mimeType": "image/jpeg" }],
+    "details": { "runtime": "local-bash", "exitCode": 0 },
+    "isError": false,
+    "durationMs": 116,
+    "timestamp": 1794541657561,
+    "timing": { "startedAt": 1794541657444, "completedAt": 1794541657561, "durationMs": 116.45 }
+  },
+  {
+    "role": "steering",
+    "id": "<id>",
+    "content": [{ "type": "text", "text": "Placeholder steer prompt sent while running" }],
+    "attachments": [],
+    "timestamp": 1794541660000,
+    "after": "<message id>"
+  },
+  {
+    "role": "assistant",
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "toolu_02",
+        "name": "ask_user_question",
+        "arguments": {
+          "questions": [
+            {
+              "question": "Placeholder question?",
+              "header": "Short header",
+              "options": [
+                { "label": "Option A", "description": "What A does" },
+                { "label": "Option B", "description": "What B does" }
+              ]
+            },
+            {
+              "question": "Placeholder multi-select question?",
+              "header": "Second header",
+              "multiple": true,
+              "options": [
+                { "label": "X", "description": "What X does" },
+                { "label": "Y", "description": "What Y does" }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "api": "anthropic-messages",
+    "provider": "claude-code",
+    "model": "claude-opus-5-5",
+    "usage": {},
+    "stopReason": "toolUse",
+    "timestamp": 1794541661000,
+    "completedAt": 1794541662000
+  },
+  {
+    "role": "toolResult",
+    "toolCallId": "toolu_02",
+    "toolName": "ask_user_question",
+    "content": [{ "type": "text", "text": "Asked user 2 question(s). Received response.\n\nUser responses to asked questions:\n- Short header: Option A\n- Second header: X, Y" }],
+    "details": {},
+    "isError": false,
+    "durationMs": 6294,
+    "timestamp": 1794541668294,
+    "timing": { "startedAt": 1794541662000, "completedAt": 1794541668294, "durationMs": 6294 }
+  },
+  {
+    "role": "assistant",
+    "content": [{ "type": "text", "text": "Placeholder final answer" }],
+    "api": "anthropic-messages",
+    "provider": "claude-code",
+    "model": "claude-opus-5-5",
+    "usage": {},
+    "stopReason": "stop",
+    "timestamp": 1794541668300,
+    "rawStopReason": "end_turn",
+    "durationMs": 1200,
+    "completedAt": 1794541669500
+  },
+  { "role": "turn-lifecycle", "event": "finished", "turnId": "00000000-0000-0000-0000-000000000001", "timestamp": 1794541669510 }
+]
