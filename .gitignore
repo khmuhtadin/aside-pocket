@@ -1,0 +1,16 @@
+node_modules/
+.DS_Store
+*.log
+.playwright-cli/
+
+# Secrets live in ~/.aside-pocket, never in the repo. These names are a safety net.
+.env
+env
+token
+vapid.json
+subscriptions.json
+pair.json
+config.json
+models.json
+*.pem
+*.key

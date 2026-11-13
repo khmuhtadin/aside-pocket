@@ -1,0 +1,2 @@
+created new session: Zx9_abc-DEF12345
+[tool] bash: Sleep 25 seconds
